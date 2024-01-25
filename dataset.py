@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 from scipy import stats
+from scipy.stats.mstats import winsorize
 
 
 # Load dataset
@@ -28,6 +29,12 @@ df.drop('employee_id', axis=1, inplace=True)
 
 
 # Handling outliers
+
+# for 'no_of_trainings':
+
+
+df['no_of_trainings'] = winsorize(df['no_of_trainings'], limits=[0.05, 0.05])
+
 
 
 # for 'age':
@@ -91,6 +98,10 @@ upp_lim = Q3 + 1.5 * IQR
 # Cliping outilers
 
 df['length_of_service'] = df['length_of_service'].clip(lower=low_lim,upper=upp_lim)
+
+
+
+
 
 
 
