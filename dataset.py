@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Load dataset
 
@@ -16,7 +17,7 @@ df['education']=df['education'].fillna(df['education'].mode()[0])
 
 df['previous_year_rating']=df['previous_year_rating'].fillna(df['previous_year_rating'].median())
 
-
+# No duplicate entries found
 
 
 
