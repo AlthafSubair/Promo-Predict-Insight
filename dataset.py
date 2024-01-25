@@ -19,6 +19,9 @@ df['previous_year_rating']=df['previous_year_rating'].fillna(df['previous_year_r
 
 # No duplicate entries found
 
+# Droped "employee_id"
+
+df.drop('employee_id', axis=1, inplace=True)
 
 
 
