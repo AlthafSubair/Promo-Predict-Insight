@@ -164,7 +164,9 @@ df['length_of_service'] = min_max_scaler.fit_transform(df[['length_of_service']]
 min_max_scaler = MinMaxScaler()
 df['avg_training_score'] = min_max_scaler.fit_transform(df[['avg_training_score']])
 
+# Downloading csv file for perfoming ml algorthims
 
+df.to_csv('preprocessed_data.csv', index=False)
 
 
 
