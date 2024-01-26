@@ -132,6 +132,40 @@ od = OrdinalEncoder(categories=[["other","sourcing","referred"]],dtype=int)
 df['recruitment_channel'] = od.fit_transform(df[['recruitment_channel']])
 
 
+# Normilazation
+
+# Normilazed 'department' using MinMaxScaler
+
+min_max_scaler = MinMaxScaler()
+df['department'] = min_max_scaler.fit_transform(df[['department']])
+
+#  Normilazed 'region' using MinMaxScaler
+
+min_max_scaler = MinMaxScaler()
+df['region'] = min_max_scaler.fit_transform(df[['region']])
+
+#  Normilazed 'age' using MinMaxScaler
+
+min_max_scaler = MinMaxScaler()
+df['age'] = min_max_scaler.fit_transform(df[['age']])
+
+#  Normilazed 'previous_year_rating' using MinMaxScaler
+
+min_max_scaler = MinMaxScaler()
+df['previous_year_rating'] = min_max_scaler.fit_transform(df[['previous_year_rating']])
+
+#  Normilazed 'length_of_service' using MinMaxScaler
+
+min_max_scaler = MinMaxScaler()
+df['length_of_service'] = min_max_scaler.fit_transform(df[['length_of_service']])
+
+#  Normilazed 'avg_training_score' using MinMaxScaler
+
+min_max_scaler = MinMaxScaler()
+df['avg_training_score'] = min_max_scaler.fit_transform(df[['avg_training_score']])
+
+
+
 
 
 
