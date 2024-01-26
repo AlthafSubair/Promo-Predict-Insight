@@ -4,7 +4,7 @@ import seaborn as sns
 import numpy as np
 from scipy import stats
 from scipy.stats.mstats import winsorize
-
+from sklearn.preprocessing import LabelEncoder,OrdinalEncoder,MinMaxScaler
 
 # Load dataset
 
@@ -98,6 +98,41 @@ upp_lim = Q3 + 1.5 * IQR
 # Cliping outilers
 
 df['length_of_service'] = df['length_of_service'].clip(lower=low_lim,upper=upp_lim)
+
+
+# Encoding
+
+# Performed label encoding in 'department':
+
+le = LabelEncoder()
+df['department'] = le.fit_transform(df[['department']])
+
+# performed transformation in 'region':
+
+df['region'] = df['region'].str.extract('(\d+)').astype(int) # Extracted numerical data from the text and used it 
+
+
+
+# performed ordinal encoding in 'education':
+
+od = OrdinalEncoder()
+od = OrdinalEncoder(categories=[["Below Secondary","Bachelor's","Master's & above"]],dtype=int)
+df['education'] = od.fit_transform(df[['education']])
+
+
+# Performed label encoding in 'gender':
+
+le = LabelEncoder()
+df['gender'] = le.fit_transform(df[['gender']])
+
+# performed ordinal encoding in 'recruitment_channel':
+
+od = OrdinalEncoder()
+od = OrdinalEncoder(categories=[["other","sourcing","referred"]],dtype=int)
+df['recruitment_channel'] = od.fit_transform(df[['recruitment_channel']])
+
+
+
 
 
 
