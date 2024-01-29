@@ -1,10 +1,6 @@
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 import numpy as np
-from scipy import stats
-from scipy.stats.mstats import winsorize
-from sklearn.preprocessing import LabelEncoder,OrdinalEncoder,MinMaxScaler
+from sklearn.preprocessing import LabelEncoder,OrdinalEncoder,StandardScaler
 
 # Load dataset
 
@@ -32,9 +28,23 @@ df.drop('employee_id', axis=1, inplace=True)
 
 # for 'no_of_trainings':
 
+# Calculating Quartiles
 
-df['no_of_trainings'] = winsorize(df['no_of_trainings'], limits=[0.05, 0.05])
+Q1 = np.percentile(df['no_of_trainings'],25)
+Q3 = np.percentile(df['no_of_trainings'],75)
 
+# Calculating Inter Quartile Range
+
+IQR = Q3 - Q1
+
+# Calculating lower and upper limit
+
+low_lim = Q1 - 1.5 * IQR
+upp_lim = Q3 + 1.5 * IQR
+
+# Cliping outilers
+
+df['no_of_trainings'] = df['no_of_trainings'].clip(lower=low_lim,upper=upp_lim)
 
 
 # for 'age':
@@ -134,35 +144,15 @@ df['recruitment_channel'] = od.fit_transform(df[['recruitment_channel']])
 
 # Normilazation
 
-# Normilazed 'department' using MinMaxScaler
+# Initialize StandardScaler
+standard_scaler = StandardScaler()
 
-min_max_scaler = MinMaxScaler()
-df['department'] = min_max_scaler.fit_transform(df[['department']])
+# List of columns to be Standard scaled
+standard_columns = ['age', 'previous_year_rating', 'length_of_service', 'avg_training_score']
 
-#  Normilazed 'region' using MinMaxScaler
+# Apply Standard Scaling
+df[standard_columns] = standard_scaler.fit_transform(df[standard_columns])
 
-min_max_scaler = MinMaxScaler()
-df['region'] = min_max_scaler.fit_transform(df[['region']])
-
-#  Normilazed 'age' using MinMaxScaler
-
-min_max_scaler = MinMaxScaler()
-df['age'] = min_max_scaler.fit_transform(df[['age']])
-
-#  Normilazed 'previous_year_rating' using MinMaxScaler
-
-min_max_scaler = MinMaxScaler()
-df['previous_year_rating'] = min_max_scaler.fit_transform(df[['previous_year_rating']])
-
-#  Normilazed 'length_of_service' using MinMaxScaler
-
-min_max_scaler = MinMaxScaler()
-df['length_of_service'] = min_max_scaler.fit_transform(df[['length_of_service']])
-
-#  Normilazed 'avg_training_score' using MinMaxScaler
-
-min_max_scaler = MinMaxScaler()
-df['avg_training_score'] = min_max_scaler.fit_transform(df[['avg_training_score']])
 
 # Downloading csv file for perfoming ml algorthims
 
