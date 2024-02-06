@@ -1,0 +1,252 @@
+<html>
+  <head>
+    <title>PROMO PREDICT INSIGHT</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/index.css">
+  </head>
+  <body>
+
+    <!-- header-start -->
+
+    <div class="header">
+      <div class="logo">
+        <a class="name" href="#">PROMO PREDICT INSIGHT</a>
+      </div>
+    </div>
+
+    <!-- header-end -->
+
+    <div class="testbox">
+
+        <!-- form-start -->
+
+      <form method="post" action="/submit">
+
+        <!-- banner-start -->
+
+        <div class="banner">
+          <h1>PROMO PREDICT INSIGHT</h1> 
+        </div>
+
+        <!-- banner-end -->
+
+        <!-- slogan-start -->
+
+        <p class="top-info">Elevate Your Team: Forecasting Future Leaders with Precision!</p>
+        
+        <!-- slogan-end -->
+         
+        <!-- Grid-start -->
+
+        <div class="position-item">
+            <!-- item-start -->
+
+            <div class="item">
+              <p>Department<span class="required">*</span></p>
+              <select name="department" required>
+                <option value="">--select--</option>
+                <option value="Sales & Marketing">Sales & Marketing</option>
+                <option value="Operations">Operations</option>
+                <option value="Technology">Technology</option>
+                <option value="Procurement">Procurement</option>
+                <option value="Analytics">Analytics</option>
+                <option value="Finance">Finance</option>
+                <option value="HR">HR</option>
+                <option value="Legal">Legal</option>
+                <option value="R&D">R&D</option>
+              </select>
+            </div>
+
+            <!-- item-end -->
+
+            <!-- item-start -->
+
+            <div class="item">
+              <p>Region<span class="required">*</span></p>
+              <input type="text"  name="region" pattern="^region_(?:[1-9]|[1-2][0-9]|34)$" title="Please enter prefix 'region_' along with a number less 35" placeholder="eg:region_3" required/>
+            </div>
+
+            <!-- item-end -->
+
+          </div>
+
+          <!-- Grid-end  -->
+
+          <!-- Grid-start  -->
+
+          <div class="position-item" >
+
+            <!-- item-start -->
+
+          <div class="item">
+            <p>Education<span class="required">*</span></p>
+            <select name="education" required>
+              <option value="">--select--</option>
+              <option value="Bachelor's">Bachelor's</option>
+              <option value="Master's & above">Master's & above</option>
+              <option value="Below Secondary">Below Secondary</option>
+            </select>
+          </div>
+          <!-- item-end -->
+
+          <!-- item-start -->
+
+          <div class="item">
+          <p>Recruitment Channel<span class="required">*</span></p>
+            <select name="recruitment_channel" required>
+              <option value="">--select--</option>
+              <option value="other">other</option>
+              <option value="sourcing">sourcing</option>
+              <option value="referred">referred</option>
+            </select>
+          </div>
+
+          <!-- item-end -->
+
+        </div>
+
+        <!-- Grid-end  -->
+
+<!-- item_radio-start -->
+
+<div class="radios" style="display: flex;">
+        <div class="question">
+          <p>Gender<span class="required">*</span></p>
+          <div class="question-answer">
+            <div>
+              <input type="radio" value="m" id="Male" name="gender" required/>
+              <label for="Male" class="radio"><span>Male</span></label>
+            </div>
+            <div>
+              <input type="radio" value="f" id="Female" name="gender" required/>
+              <label for="Female" class="radio"><span>Female</span></label>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- item_radio-end -->
+
+    <!-- Grid-start  -->
+
+    <div class="position-item" >
+
+        <!-- item-start -->
+
+        <div class="item">
+            <p>No of Traings<span class="required">*</span></p>
+            <input type="text" pattern="[0-9]|10" title="Please enter a number from 0 to 10" name="no_of_trainings" required/>
+          </div>
+
+          <!-- item-end -->
+
+          <!-- item-start -->
+
+          <div class="item">
+            <p>Age<span class="required">*</span></p>
+            <input type="text" name="age" pattern="^(1[8-9]|[2-5][0-9]|60)$" title="Enter a age between 18 and 60" required/>
+          </div>
+
+          <!-- item-end -->
+
+    </div>
+
+    <!-- Grid-end  -->
+
+    <!-- Grid-start  -->
+    
+    <div class="position-item" >
+
+        <!-- item-start -->
+
+        <div class="item">
+            <p>Length of Service<span class="required">*</span></p>
+            <input type="text" name="length_of_service" pattern="^(?:[1-9]|[1-3][0-9]|4[0-2])$" title="Enter length of service between 1 and 42" required/>
+          </div>
+
+          <!-- item -end-->
+
+          <!-- item-start -->
+
+          <div class="item">
+            <p>Previous Year Rating<span class="required">*</span></p>
+            <input type="text" name="previous_year_rating" pattern="[0-5]" title="Please enter rating out of 5" required/>
+          </div>
+
+          <!-- item-end -->
+
+    </div>
+
+    <!-- Grid -end -->
+
+    <!-- item-start -->
+
+    <div class="item">
+        <p>Average Training Score<span class="required">*</span></p>
+        <input type="text" name="avg_training_score" pattern="^100$|^[0-9]{1,2}$" title="please enter average between 0 to 100" required/>
+      </div>
+
+      <!-- item-end -->
+
+        <!-- item_radio-start -->
+
+        <div class="question">
+          <p>KPIs_met >80%<span class="required">*</span></p>
+            
+            <div class="question-answer">
+              <div>
+                <input type="radio" value="1" id="kpi_y" name="KPIs_met" required/>
+                <label for="kpi_y" class="radio"><span>Yes</span></label>
+              </div>
+              <div>
+                <input type="radio" value="0" id="kpi_n" name="KPIs_met" required/>
+                <label for="kpi_n" class="radio"><span>No</span></label>
+              </div>
+            </div>
+          </div>
+          <!-- item_radio-end -->
+
+          <!-- item_radio-start -->
+
+        <div class="question">
+            <p>Awards<span class="required">*</span></p>
+            <div class="question-answer">
+              <div>
+                <input type="radio" value="1" id="Yes" name="awards" required />
+                <label for="Yes" class="radio"><span>Yes</span></label>
+              </div>
+              <div>
+                <input type="radio" value="0" id="No" name="awards" required />
+                <label for="No" class="radio"><span>No</span></label>
+              </div>
+            </div>
+          </div>
+  
+          <!-- item_radio-end -->
+  
+
+       <!-- button-start -->
+
+        <div class="btn-block">
+          <button type="submit">Predict</button>
+        </div>
+       
+        <!-- button-end -->
+
+      </form>
+
+      <!-- form-end -->
+
+    </div>
+
+    <!-- footer-start -->
+
+    <div class="footer">
+      <p class="cpyrht">© 2024 PROMO PREDICT INSIGHT. All rights reserved</p>
+    </div>
+
+    <!-- footer-end -->
+
+  </body>
+</html>
